@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import App from "./App";
+import App from "./App.jsx";
 import reportWebVitals from "./reportWebVitals";
 import { Provider } from "mobx-react";
 import { syncHistoryWithStore } from "@ibm/mobx-react-router";
@@ -16,7 +16,6 @@ const stores = {
 
 const browseHistory = createBrowserHistory();
 const history = syncHistoryWithStore(browseHistory, routerStore);
-//const history = syncHistoryWithStore(new Router.History(), routerStore);
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
