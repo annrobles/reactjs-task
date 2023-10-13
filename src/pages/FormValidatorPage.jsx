@@ -30,9 +30,6 @@ const styles = (theme) => ({
 	card: {
 		maxWidth: 345,
 	},
-	media: {
-		objectFit: "cover",
-	},
 	formControl: {
 		marginTop: theme.spacing.unit,
 		minWidth: 120,
