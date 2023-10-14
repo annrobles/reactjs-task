@@ -14,8 +14,8 @@ const CryptoPage = () => {
 				monetaryUnit={monetaryUnit}
 				setMonetaryUnit={setMonetaryUnit}
 			/>
-			<CryptoTable monetaryUnit={monetaryUnit} />
-			<Pagination page={page} setPage={setPage} total={10000} />
+			<CryptoTable monetaryUnit={monetaryUnit} currentPage={page} />
+			<Pagination page={page} setPage={setPage} total={1000} />
 		</div>
 	);
 };

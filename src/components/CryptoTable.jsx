@@ -8,8 +8,15 @@ import {
 	TableRow,
 } from "@material-ui/core";
 
-const CryptoPage = ({ monetaryUnit }) => {
+const CryptoPage = ({ monetaryUnit, currentPage }) => {
 	const [data, setData] = useState([]);
+
+	const formatCurrency = (amount, currencyCode) => {
+		return new Intl.NumberFormat("en-US", {
+			style: "currency",
+			currency: currencyCode,
+		}).format(amount);
+	};
 
 	useEffect(() => {
 		const fetchData = async () => {
@@ -19,8 +26,8 @@ const CryptoPage = ({ monetaryUnit }) => {
 					params: {
 						vs_currency: monetaryUnit,
 						order: "market_cap_desc",
-						per_page: 10,
-						page: 1,
+						per_page: 100,
+						page: currentPage,
 						sparkline: false,
 						market_dominance: "market_cap",
 						market_cap_change_percentage_24h_in_currency: monetaryUnit,
@@ -35,7 +42,7 @@ const CryptoPage = ({ monetaryUnit }) => {
 		};
 
 		fetchData();
-	}, [monetaryUnit]);
+	}, [monetaryUnit, currentPage]);
 
 	return (
 		<Table>
@@ -55,7 +62,7 @@ const CryptoPage = ({ monetaryUnit }) => {
 					<TableRow key={coin.id}>
 						<TableCell>{coin.name}</TableCell>
 						<TableCell>
-							${new Intl.NumberFormat("en-US").format(coin.current_price)}
+              {formatCurrency(coin.current_price,monetaryUnit)}
 						</TableCell>
 						<TableCell>
 							{coin.price_change_percentage_1h_in_currency.toFixed(2)}%
