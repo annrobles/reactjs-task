@@ -62,16 +62,24 @@ const CryptoPage = ({ monetaryUnit, currentPage }) => {
 					<TableRow key={coin.id}>
 						<TableCell>{coin.name}</TableCell>
 						<TableCell>
-              {formatCurrency(coin.current_price,monetaryUnit)}
+							{formatCurrency(coin.current_price, monetaryUnit)}
 						</TableCell>
 						<TableCell>
-							{coin.price_change_percentage_1h_in_currency.toFixed(2)}%
+							{coin.price_change_percentage_1h_in_currency !== null
+								? coin.price_change_percentage_1h_in_currency.toFixed(2)
+								: ""}
 						</TableCell>
 						<TableCell>
-							{coin.price_change_percentage_24h_in_currency.toFixed(2)}%
+							{coin.price_change_percentage_24h_in_currency !== null
+								? coin.price_change_percentage_24h_in_currency.toFixed(2)
+								: ""}
+							%
 						</TableCell>
 						<TableCell>
-							{coin.price_change_percentage_7d_in_currency.toFixed(2)}%
+							{coin.price_change_percentage_7d_in_currency !== null
+								? coin.price_change_percentage_7d_in_currency.toFixed(2)
+								: ""}
+							%
 						</TableCell>
 						<TableCell>{coin.total_volume}</TableCell>
 						<TableCell>{coin.market_cap}</TableCell>
