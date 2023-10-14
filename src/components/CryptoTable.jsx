@@ -81,8 +81,8 @@ const CryptoPage = ({ monetaryUnit, currentPage }) => {
 								: ""}
 							%
 						</TableCell>
-						<TableCell>{coin.total_volume}</TableCell>
-						<TableCell>{coin.market_cap}</TableCell>
+						<TableCell>{formatCurrency(coin.total_volume, monetaryUnit)}</TableCell>
+						<TableCell>{formatCurrency(coin.market_cap, monetaryUnit)}</TableCell>
 					</TableRow>
 				))}
 			</TableBody>

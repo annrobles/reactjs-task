@@ -127,7 +127,6 @@ class ResponsiveDrawer extends React.Component {
 					</Toolbar>
 				</AppBar>
 				<nav className={classes.drawer}>
-					{/* The implementation can be swapped with js to avoid SEO duplication of links. */}
 					<Hidden smUp implementation="css">
 						<Drawer
 							container={this.props.container}
